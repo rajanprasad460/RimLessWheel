@@ -18,7 +18,7 @@ l = 1;       % Length of each spoke
 g = 9.81 * cos(gamma); % Effective gravity along slope
 mw = 1;      % Mass per spoke
 lw = 0.5;    % Distance of spoke CoM from hub
-nw = 7;      % Number of spokes
+nw = 5;      % Number of spokes
 
 % Geometry of spokes
 ang_w = 0:2*pi/nw:(2*pi - 2*pi/nw);  % Angles between spokes (rad)
@@ -220,7 +220,28 @@ while (k < n)
     f_count = f_count + 1;
 end
 
-% %% ------------------------- [7] Video Export -------------------------
+%% Figure plot >> Output angles and angular Velocities
+figure;
+
+% Plot Angle
+subplot(2,1,1);
+plot(t, y(:,1), 'r', 'LineWidth', 1.5);
+ylabel('Angle (rad)');
+title('System Response');
+grid on;
+axis tight;
+
+% Plot Angular Velocity
+subplot(2,1,2);
+plot(t, y(:,2), 'b', 'LineWidth', 1.5);
+ylabel('Angular Velocity (rad/s)');
+xlabel('Time (s)');
+grid on;
+axis tight;
+
+
+
+%% ------------------------- [7] Video Export -------------------------
 % v = VideoWriter('RimLess Wheel.mp4', 'MPEG-4');
 % open(v);
 % writeVideo(v, im);
@@ -228,17 +249,17 @@ end
 
 
 %% ------------------------- [9] GIF Export -------------------------
-filename = 'rimless_wheel.gif'; % Output file name
-delay = 0.05;                   % Delay time between frames (in seconds)
-
-for idx = 1:f_count-1
-    [A_map, map] = rgb2ind(im2{idx}, 256); % Convert RGB to indexed image
-    
-    if idx == 1
-        % Create the GIF file
-        imwrite(A_map, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
-    else
-        % Append to the existing GIF
-        imwrite(A_map, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', delay);
-    end
-end
+% filename = 'rimless_wheel.gif'; % Output file name
+% delay = 0.05;                   % Delay time between frames (in seconds)
+% 
+% for idx = 1:f_count-1
+%     [A_map, map] = rgb2ind(im2{idx}, 256); % Convert RGB to indexed image
+% 
+%     if idx == 1
+%         % Create the GIF file
+%         imwrite(A_map, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
+%     else
+%         % Append to the existing GIF
+%         imwrite(A_map, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', delay);
+%     end
+% end
