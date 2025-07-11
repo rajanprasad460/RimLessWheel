@@ -2,7 +2,14 @@
 
 A MATLAB-based simulation of **passive dynamic walking** using a rimless wheel rolling down an inclined plane. Demonstrates hybrid dynamics, spoke impacts, and energy behavior.
 
+
+## Walking Forward
 ![Rimless Wheel Motion](/rimless_wheel.gif)  
+
+
+## Walking Forward and Reverse (Juggling)
+![Rimless Wheel Motion](/rimless_wheel2.gif)  
+
 
 ## Features  
 - Passive rimless wheel dynamics on an inclined plane  

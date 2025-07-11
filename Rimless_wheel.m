@@ -18,7 +18,7 @@ l = 1;       % Length of each spoke
 g = 9.81 * cos(gamma); % Effective gravity along slope
 mw = 1;      % Mass per spoke
 lw = 0.5;    % Distance of spoke CoM from hub
-nw = 7;      % Number of spokes
+nw = 6;      % Number of spokes
 
 % Geometry of spokes
 ang_w = 0:2*pi/nw:(2*pi - 2*pi/nw);  % Angles between spokes (rad)
@@ -291,17 +291,17 @@ axis tight;
 
 
 %% ------------------------- [9] GIF Export -------------------------
-filename = 'rimless_wheel.gif'; % Output file name
-delay = 0.05;                   % Delay time between frames (in seconds)
-
-for idx = 1:f_count-1
-    [A_map, map] = rgb2ind(im2{idx}, 256); % Convert RGB to indexed image
-
-    if idx == 1
-        % Create the GIF file
-        imwrite(A_map, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
-    else
-        % Append to the existing GIF
-        imwrite(A_map, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', delay);
-    end
-end
+% filename = 'rimless_wheel.gif'; % Output file name
+% delay = 0.05;                   % Delay time between frames (in seconds)
+% 
+% for idx = 1:f_count-1
+%     [A_map, map] = rgb2ind(im2{idx}, 256); % Convert RGB to indexed image
+% 
+%     if idx == 1
+%         % Create the GIF file
+%         imwrite(A_map, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
+%     else
+%         % Append to the existing GIF
+%         imwrite(A_map, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', delay);
+%     end
+% end
