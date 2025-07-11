@@ -10,7 +10,7 @@ close all;
 %% ------------------------- [1] Setup & Parameters -------------------------
 
 % Inclination angle of the slope (in radians)
-gamma = 2 * pi / 180;
+gamma = 12 * pi / 180;
 
 % Rimless wheel parameters
 m = 10;      % Mass of the hub (center)
@@ -291,17 +291,17 @@ axis tight;
 
 
 %% ------------------------- [9] GIF Export -------------------------
-% filename = 'rimless_wheel.gif'; % Output file name
-% delay = 0.05;                   % Delay time between frames (in seconds)
-%
-% for idx = 1:f_count-1
-%     [A_map, map] = rgb2ind(im2{idx}, 256); % Convert RGB to indexed image
-%
-%     if idx == 1
-%         % Create the GIF file
-%         imwrite(A_map, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
-%     else
-%         % Append to the existing GIF
-%         imwrite(A_map, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', delay);
-%     end
-% end
+filename = 'rimless_wheel.gif'; % Output file name
+delay = 0.05;                   % Delay time between frames (in seconds)
+
+for idx = 1:f_count-1
+    [A_map, map] = rgb2ind(im2{idx}, 256); % Convert RGB to indexed image
+
+    if idx == 1
+        % Create the GIF file
+        imwrite(A_map, map, filename, 'gif', 'LoopCount', Inf, 'DelayTime', delay);
+    else
+        % Append to the existing GIF
+        imwrite(A_map, map, filename, 'gif', 'WriteMode', 'append', 'DelayTime', delay);
+    end
+end
